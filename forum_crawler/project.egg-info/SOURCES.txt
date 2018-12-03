@@ -1,0 +1,14 @@
+setup.py
+forum_crawler/__init__.py
+forum_crawler/items.py
+forum_crawler/middlewares.py
+forum_crawler/pipelines.py
+forum_crawler/settings.py
+forum_crawler/spiders/__init__.py
+forum_crawler/spiders/active.py
+forum_crawler/spiders/stat.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt

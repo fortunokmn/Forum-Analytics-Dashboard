@@ -1,0 +1,220 @@
+var drillF=[
+    {
+        "name": "Agricultural Resources Management",
+        "id": "Agricultural Resources Management",
+        "data": [
+            [
+                "Organic Farming",
+                2287
+            ],
+            [
+                "Agricultural Machinery",
+                1224
+            ],
+            [
+                "Agricultural Ecosystems",
+                188
+            ]
+        ]
+    },
+    {
+        "name": "Crops",
+        "id": "Crops",
+        "data": [
+            [
+                "Coconut",
+                966
+            ],
+            [
+                "Coffee",
+                228
+            ],
+            [
+                "Corn",
+                787
+            ],
+            [
+                "Fruit Crops",
+                3223
+            ],
+            [
+                "Industrial Crops",
+                651
+            ],
+            [
+                "Rice",
+                1402
+            ],
+            [
+                "Sugarcane",
+                529
+            ],
+            [
+                "VeLeRo",
+                1262
+            ]
+        ]
+    },
+    {
+        "name": "Environment",
+        "id": "Environment",
+        "data": [
+            [
+                "Biodiversity",
+                101
+            ],
+            [
+                "Climate Change",
+                16
+            ],
+            [
+                "Inland Environment",
+                161
+            ],
+            [
+                "Ocean Environment",
+                12
+            ]
+        ]
+    },
+    {
+        "name": "Forestry",
+        "id": "Forestry",
+        "data": [
+            [
+                "Agroforestry",
+                236
+            ],
+            [
+                "Bamboo",
+                595
+            ],
+            [
+                "Industrial Tree Plantation",
+                1185
+            ],
+            [
+                "Sago Palm",
+                0
+            ]
+        ]
+    },
+    {
+        "name": "Inland Aquatic Resources",
+        "id": "Inland Aquatic Resources",
+        "data": [
+            [
+                "Aquafeeds",
+                3
+            ],
+            [
+                "Milkfish",
+                41
+            ],
+            [
+                "Mudcrab",
+                18
+            ],
+            [
+                "Mussels",
+                9
+            ],
+            [
+                "Shrimps and Prawns",
+                99
+            ],
+            [
+                "Tilapia",
+                206
+            ],
+            [
+                "Lakes and Rivers",
+                22
+            ]
+        ]
+    },
+    {
+        "name": "Livestock",
+        "id": "Livestock",
+        "data": [
+            [
+                "Feed Resources",
+                2337
+            ],
+            [
+                "Poultry",
+                11687
+            ],
+            [
+                "Ruminants",
+                5433
+            ],
+            [
+                "Swine",
+                39927
+            ]
+        ]
+    },
+    {
+        "name": "Marine Resources",
+        "id": "Marine Resources",
+        "data": [
+            [
+                "Blue Swimming Crab",
+                2
+            ],
+            [
+                "Sardines",
+                1
+            ],
+            [
+                "Sea Cucumber",
+                3
+            ],
+            [
+                "Seaweeds",
+                10
+            ],
+            [
+                "Shelfish",
+                14
+            ],
+            [
+                "Tuna",
+                6
+            ]
+        ]
+    },
+    {
+        "name": "Socio Economics",
+        "id": "Socio Economics",
+        "data": [
+            [
+                "Agriculture and Resource Economics",
+                141
+            ],
+            [
+                "Rural Sociology",
+                277
+            ]
+        ]
+    },
+    {
+        "name": "Sundry",
+        "id": "Sundry",
+        "data": [
+            [
+                "Anything",
+                2307
+            ],
+            [
+                "Buy and Sell",
+                7099
+            ],
+            [
+                "Spam Reporting",
+                68
+            ]
+        ]
+    }
+]

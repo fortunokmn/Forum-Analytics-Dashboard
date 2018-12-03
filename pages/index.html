@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PCAARRD Forum Analytics Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+    .highcharts-tooltip h3 {
+    margin: 0.3em 0;
+    }
+</style>
+
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript" src="../forum_crawler/forum_crawler/spiders/stat.json"></script>
+
+<script type="text/javascript">
+    function load() {
+    //forum stats 
+
+        var mystat = stat;
+        document.getElementById("users").innerHTML = mystat[0].users;
+        document.getElementById("topics").innerHTML = mystat[0].topics;
+        document.getElementById("posts").innerHTML = mystat[0].posts;
+        document.getElementById("online_users").innerHTML = mystat[0].online_users;
+
+        
+        var date = new Date(new Date().getFullYear(), new Date().getMonth() , new Date().getDate());        
+        document.getElementById("date").innerHTML = "As of " + date;
+    }
+
+</script>
+
+</head>
+
+<body onload="load()">
+<!--for Highcharts -->
+<script src="../code/highcharts.js"></script>
+<script src="../code/highcharts-more.js"></script>
+<script src="../code/modules/data.js"></script>
+<script src="../code/modules/drilldown.js"></script>
+<script src="../code/modules/exporting.js"></script>
+<script src="../code/modules/export-data.js"></script>  
+
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                
+                <a class="navbar-brand" href="myfirst.html">Forum Analytics Dashboard</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-home fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+
+                            <a href="http://mboard.pcaarrd.dost.gov.ph/forum/index.php">
+                                <div>
+                                     
+                                    <i class="fa fa-external-link fa-fw"></i>
+                                    <strong>Forum</strong>
+                                
+                                    <span class="pull-right text-muted">
+                                        
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-sign-out fa-fw"></i>
+                                    <strong>Exit</strong>
+                                    <span class="pull-right text-muted">
+                                        
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                
+            </ul>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+
+        	<div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-users fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" id="users"></div>
+                                    <div>Registered Users<br></div>
+                                </div>
+                            </div>
+                        </div>                     
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-list fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" id="topics"></div>
+                                    <div>Topics<br></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-sticky-note fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" id="posts"></div>
+                                    <div>Posts<br></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-globe fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" id="online_users"></div>
+                                    <div>Online Users<br></div>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+    
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <br>
+
+                    <!-- row 1 -->
+                    <div class="row"> 
+                        <div class="col-lg-8 col-md-6">
+                        
+                            <div class="panel" id="container1">
+
+                                <!-- read forum json-->
+                                <script type="text/javascript" src="drilldownF.json"></script>
+                                
+                                <!-- Forum Topics -->
+                                <script type="text/javascript" src="forumTopic.js"></script>
+                        
+                            </div>
+                        <!-- /.panel -->            
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                        
+                          	<div class="panel panel-default">
+		                        <div class="panel-heading">
+		                            Active Topics as of Yesterday
+		                        </div>
+		                        <!-- /.panel-heading -->
+		                        <div class="panel-body">
+		                            <div class="table-responsive">
+		                                <table class="table table-striped" id="my_table">
+		                                    <thead>
+		                                        <tr>
+		                                            <th>Topics</th>
+		                                            
+		                                        </tr>
+		                                    </thead>
+		                                    <tbody>
+		                                        <!-- see below for the script for active topics-->
+		                                    
+                                            </tbody>
+		                                </table>
+		                            </div>
+		                            <!-- /.table-responsive -- >
+		                        </div>
+		                        <!-- /.panel-body -->
+		                    </div>
+            				<!-- /.panel -->
+                      	</div>
+
+                    </div>
+
+                </div> <!-- col-lg-12-->
+            </div> <!-- row-->
+
+            <div class="row">
+                 <div class = col-lg-12>
+
+                    <br>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Agricultural Resources Management
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category1">   
+                                    <script type="text/javascript" src="topPost1.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Crops
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category2">   
+                                    <script type="text/javascript" src="topPost2.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Environment
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category3">   
+                                    <script type="text/javascript" src="topPost3.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <br>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Forestry
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category4">   
+                                    <script type="text/javascript" src="topPost4.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Inland Aquatic Resources
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category5">   
+                                    <script type="text/javascript" src="topPost5.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Livestock
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category6">   
+                                    <script type="text/javascript" src="topPost6.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <br>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Marine Resources
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category7">   
+                                    <script type="text/javascript" src="topPost7.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Socio Economics
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category8">   
+                                    <script type="text/javascript" src="topPost8.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Publications
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category9">   
+                                    <script type="text/javascript" src="topPost9.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <br>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                    
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Sundry
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="panel" id="category10">   
+                                    <script type="text/javascript" src="topPost10.js"></script>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                    
+                        
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- /#page-wrapper -->
+    </div><!-- wrapper --> 
+    <div id = "date"></div>
+
+
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+<!-- Active Topics -->
+<script type="text/javascript" src="../forum_crawler/forum_crawler/spiders/active.json"></script>
+<script>
+    var local_data = active;
+    var row_data = '';
+    for (var i = 0; i < local_data.length; i++) {
+      var row_data = row_data + '<tr>' +
+        '<a href="' + local_data[i].link + '">' +
+        local_data[i].topic +
+        '</a></tr>';
+    }
+    var table_body_element = document.createElement('tbody');
+    table_body_element.innerHTML = row_data;
+    document.getElementById('my_table').appendChild(table_body_element);
+   
+</script>
+
+
+</html>

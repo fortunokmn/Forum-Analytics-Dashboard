@@ -47,12 +47,12 @@ Highcharts.chart('container1', {
             "data": [
                 {
                     "name": "Agricultural Resources Management",
-                    "y": 3699,
+                    "y": 3700,
                     "drilldown": "Agricultural Resources Management"
                 },
                 {
                     "name": "Crops",
-                    "y": 9048,
+                    "y": 9049,
                     "drilldown": "Crops"
                 },
                 {
@@ -62,7 +62,7 @@ Highcharts.chart('container1', {
                 },
                 {
                     "name": "Forestry",
-                    "y": 2016,
+                    "y": 2017,
                     "drilldown": "Forestry"
                 },
                 {
@@ -72,7 +72,7 @@ Highcharts.chart('container1', {
                 },
                 {
                     "name": "Livestock",
-                    "y": 59384,
+                    "y": 59385,
                     "drilldown": "Livestock"
                 },
                 {
